@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { bookApi } from "../services/bookService";
 import { ISearchBookApi } from "../services/types/intex";
@@ -7,7 +7,7 @@ import { ISearchBookApi } from "../services/types/intex";
 export const Search = () => {
   const { title = "", page = "" } = useParams();
   const [searchBook, setSearchBook] = useState<ISearchBookApi>();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   // const handleNextPage = () => {
   //   navigate(`search/${title}/${Number(page) + 1}`);
