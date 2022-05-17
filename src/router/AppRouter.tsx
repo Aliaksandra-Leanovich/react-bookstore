@@ -11,22 +11,13 @@ import { Search } from "../pages/Search";
 const AppRouter = () => {
   return (
     <Routes>
-      <Route path="/react-bookstore" element={<MainTemplate />}>
-        <Route path="/react-bookstore" element={<Home />}></Route>
-        <Route
-          path="/react-bookstore/books/:id"
-          element={<DetailsBook />}
-        ></Route>
-        <Route
-          path="/react-bookstore/search/:title/:page"
-          element={<Search />}
-        ></Route>
-        <Route path="/react-bookstore/account" element={<Account />}></Route>
-        <Route path="/react-bookstore/cart" element={<Cart />}></Route>
-        <Route
-          path="/react-bookstore/favorites"
-          element={<Favorites />}
-        ></Route>
+      <Route path="/" element={<MainTemplate />}>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/books/:id" element={<DetailsBook />}></Route>
+        <Route path="/search/:title/:page" element={<Search />}></Route>
+        <Route path="/account" element={<Account />}></Route>
+        <Route path="/cart" element={<Cart />}></Route>
+        <Route path="/favorites" element={<Favorites />}></Route>
       </Route>
     </Routes>
   );
