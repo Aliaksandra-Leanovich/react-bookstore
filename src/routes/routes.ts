@@ -1,5 +1,5 @@
 export enum routes {
-  HOME = "/react-bookstore",
+  HOME = "/",
   CART = "/cart",
   ACCOUNT = "/account",
   SIGNIN = "/sign-in",
