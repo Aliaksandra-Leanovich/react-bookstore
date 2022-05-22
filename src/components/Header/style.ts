@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Colors } from "../../ui/colors";
 import { media } from "../../ui/media";
 const StyledHeader = styled.div`
   display: flex;
@@ -7,7 +8,7 @@ const StyledHeader = styled.div`
   margin-bottom: 72px;
   padding-top: 24px;
   padding-bottom: 24px;
-  border-bottom: 1px rgb(231, 231, 231) solid;
+  border-bottom: 1px ${Colors.GREY} solid;
 `;
 const StyledIcon = styled.img`
   width: 137px;
