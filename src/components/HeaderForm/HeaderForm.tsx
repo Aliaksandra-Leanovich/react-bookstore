@@ -21,6 +21,7 @@ export default HeaderForm;
 
 const StyledInput = styled.input`
   max-width: 542px;
+  border-radius: 20px;
   width: 100%;
   padding-top: 11px;
   padding-bottom: 11px;
