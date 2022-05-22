@@ -1,14 +1,15 @@
 import { Nav } from "../Nav/Nav";
-import { StyledIcon, StyledHeader } from "./style";
-import logo from "../../assets/logo.svg";
+import { StyledHeader } from "./style";
+
 import { Link } from "react-router-dom";
 import HeaderForm from "../HeaderForm/HeaderForm";
+import { Logo } from "../../assets";
 
 export const Header = () => {
   return (
     <StyledHeader>
       <Link to="/">
-        <StyledIcon src={logo} alt="logo"></StyledIcon>
+        <Logo />
       </Link>
       <HeaderForm />
       <Nav />
