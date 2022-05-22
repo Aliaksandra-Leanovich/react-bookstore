@@ -7,18 +7,21 @@ import { DetailsBook } from "../pages/DetailsBook";
 import { Favorites } from "../pages/Favorites";
 import { Home } from "../pages/Home";
 import { Search } from "../pages/Search";
+import { routes } from "../routes/routes";
 
 const AppRouter = () => {
   return (
     <Routes>
-      <Route path="/" element={<MainTemplate />}>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/books/:id" element={<DetailsBook />}></Route>
-        <Route path="/search/:title/:page" element={<Search />}></Route>
-        <Route path="/account" element={<Account />}></Route>
-        <Route path="/cart" element={<Cart />}></Route>
-        <Route path="/favorites" element={<Favorites />}></Route>
-      </Route>
+      <Route path={routes.HOME} element={<Home />}></Route>
+      <Route path="/newbooks" element={<NewBooks />}></Route>
+      <Route path="/books/:id" element={<DetailsBook />}></Route>
+      <Route path="/search/:title/:page" element={<Search />}></Route>
+      <Route path="/account" element={<Account />}></Route>
+      <Route path={routes.CART} element={<Cart />}></Route>
+      <Route path="/favorites" element={<Favorites />}></Route>
+      <Route path={routes.SIGNIN} element={<Signin />}></Route>
+      <Route path={routes.SIGNUP} element={<Register />}></Route>
+      <Route path={routes.NOT_FOUND} element={<NotFound />}></Route>
     </Routes>
   );
 };
