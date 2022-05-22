@@ -5,10 +5,10 @@ import { Header } from "../Header/Header";
 
 export const MainTemplate = () => {
   return (
-    <div>
+    <>
       <Header></Header>
       <Outlet />
       <Footer></Footer>
-    </div>
+    </>
   );
 };

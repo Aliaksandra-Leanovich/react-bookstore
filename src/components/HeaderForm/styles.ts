@@ -9,5 +9,6 @@ const StyledHeaderForm = styled.form`
   align-items: center;
   border: 1px solid ${Colors.BLACK};
   box-shadow: 10px 5px 5px ${Colors.YELLOW};
+  border-radius: 20px;
 `;
 export { StyledHeaderForm };

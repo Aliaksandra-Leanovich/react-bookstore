@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Colors } from "../../ui/colors";
 
 const StyledTextFooter = styled.p`
   padding-top: 35px;
@@ -6,6 +7,6 @@ const StyledTextFooter = styled.p`
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: rgb(168, 168, 168);
+  color: ${Colors.GREY};
 `;
 export { StyledTextFooter };
