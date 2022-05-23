@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { ButtonBack } from "../components/ButtonBack/ButtonBack";
+import { DetailedBook } from "../components/DetailedBook/DetailedBook";
 import { bookApi } from "../services/bookService";
 import { IBookDetailsApi } from "../services/types/intex";
 
@@ -18,13 +20,10 @@ export const DetailsBook = () => {
 
   return (
     <div>
-      <button type="button" onClick={handleBack}>
+      <ButtonBack type="button" handleBack={handleBack}>
         Back
-      </button>
-      <h1>ID:{id}</h1>
-      <h2>{detailsBook?.title ? detailsBook.title : "No title"}</h2>
-      <h2>{detailsBook?.price}</h2>
-      <h2>{detailsBook?.author}</h2>
+      </ButtonBack>
+      <DetailedBook key={id} detailsBook={detailsBook}></DetailedBook>
     </div>
   );
 };
