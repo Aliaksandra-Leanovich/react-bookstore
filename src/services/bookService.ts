@@ -7,7 +7,7 @@ class BookService {
     baseURL: this.API_URL,
   });
 
-  public async getNewBooks(): Promise<INewBooksApi> {
+  public async getNewBooks(): Promise<any> {
     const { data } = await this.api.get<INewBooksApi>("/new");
     return data;
   }
