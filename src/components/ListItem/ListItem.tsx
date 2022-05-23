@@ -1,6 +1,8 @@
 import React from "react";
 import { Heart } from "../../assets";
 import { INewBookApi } from "../../services/types/intex";
+import { useAppDispatch } from "../../store/hooks/hooks";
+import { addFavorite } from "../../store/slices/userSlice";
 import {
   StyledBookItem,
   BookPrice,
