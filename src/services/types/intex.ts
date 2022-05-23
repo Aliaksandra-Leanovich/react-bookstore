@@ -20,6 +20,13 @@ export interface INewBookApi {
   title: string;
   url: string;
 }
+export interface IBooksSlice {
+  books: IBook[];
+  error: any;
+  status: RequestStatusType;
+}
+
+export type RequestStatusType = "idle" | "loading" | "success";
 export interface IBookDetailsApi {
   author: string;
   desc: string;
