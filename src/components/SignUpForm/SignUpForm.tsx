@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { routes } from "../../routes/routes";
-import { setUser } from "../../store/slices/userReducer";
+import { setUser } from "../../store/slices/userSlice";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { SignUpButton, SignUpInput, StyledSignUpForm } from "./styles";
 
