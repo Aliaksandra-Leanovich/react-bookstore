@@ -1,4 +1,5 @@
 import React from "react";
+import { Heart } from "../../assets";
 import { INewBookApi } from "../../services/types/intex";
 import {
   StyledBookItem,
@@ -7,6 +8,7 @@ import {
   BookTitle,
   BookImage,
   StyledLink,
+  HeartContainer,
 } from "./styles";
 
 interface IBook {
@@ -14,8 +16,15 @@ interface IBook {
 }
 
 export const ListItem = ({ book }: IBook) => {
+  const dispatch = useAppDispatch();
+  const handleFavorite = (book: INewBookApi) => {
+    dispatch(addFavorite(book));
+  };
   return (
     <StyledBookItem key={book.isbn13}>
+      <HeartContainer onClick={() => handleFavorite(book)}>
+        <Heart />
+      </HeartContainer>
       <StyledLink to={`/books/${book.isbn13}`}>
         <BookImage src={book.image} alt={book.title} />
         <BookTitle>{book.title}</BookTitle>
