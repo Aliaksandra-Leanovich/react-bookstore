@@ -26,7 +26,7 @@ export interface IBooksSlice {
   status: RequestStatusType;
 }
 
-export type RequestStatusType = "idle" | "loading" | "success";
+export type RequestStatusType = "idle" | "loading" | "success" | "error";
 export interface IBookDetailsApi {
   author: string;
   desc: string;
