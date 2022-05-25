@@ -8,7 +8,7 @@ import { Logo } from "../../assets";
 export const Header = () => {
   return (
     <StyledHeader>
-      <Link to="/">
+      <Link to="/bookstore">
         <Logo />
       </Link>
       <HeaderForm />

@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Bookshelf } from "../components/BookShelf/Bookshelf";
+import { routes } from "../routes/routes";
 import { Colors } from "../ui/colors";
 
 export const Home = () => {
@@ -14,7 +15,7 @@ export const Home = () => {
             There are many ways to spend your time... Choose the best one.
           </HomeDescription>
         </ContainerText>
-        <StyledLink to="/newbooks">SHOP NOW</StyledLink>
+        <StyledLink to={routes.NEWBOOKS}>SHOP NOW</StyledLink>
       </Container>
       <ContainerBookShelf>
         <Bookshelf />
