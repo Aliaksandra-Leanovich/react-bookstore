@@ -16,14 +16,14 @@ import { routes } from "../routes/routes";
 const AppRouter = () => {
   return (
     <Routes>
-      <Route path="/" element={<MainTemplate />}>
+      <Route path={routes.HOME} element={<MainTemplate />}>
         <Route path={routes.HOME} element={<Home />}></Route>
-        <Route path="/newbooks" element={<NewBooks />}></Route>
-        <Route path="/books/:id" element={<DetailsBook />}></Route>
-        <Route path="/search/:title/:page" element={<Search />}></Route>
-        <Route path="/account" element={<Account />}></Route>
+        <Route path={routes.NEWBOOKS} element={<NewBooks />}></Route>
+        <Route path={routes.BOOKDETAILS} element={<DetailsBook />}></Route>
+        <Route path={routes.SEARCH} element={<Search />}></Route>
+        <Route path={routes.ACCOUNT} element={<Account />}></Route>
         <Route path={routes.CART} element={<Cart />}></Route>
-        <Route path="/favorites" element={<Favorites />}></Route>
+        <Route path={routes.FAVORITES} element={<Favorites />}></Route>
         <Route path={routes.SIGNIN} element={<Signin />}></Route>
         <Route path={routes.SIGNUP} element={<Register />}></Route>
         <Route path={routes.NOT_FOUND} element={<NotFound />}></Route>
