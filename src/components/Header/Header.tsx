@@ -4,11 +4,12 @@ import { StyledHeader } from "./style";
 import { Link } from "react-router-dom";
 import HeaderForm from "../HeaderForm/HeaderForm";
 import { Logo } from "../../assets";
+import { routes } from "../../routes/routes";
 
 export const Header = () => {
   return (
     <StyledHeader>
-      <Link to="/bookstore">
+      <Link to={routes.HOME}>
         <Logo />
       </Link>
       <HeaderForm />
