@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IBook } from "../../services/types/intex";
+import { IBook } from "../../services/types";
 
 interface IUserStore {
   isAuthorized: boolean;

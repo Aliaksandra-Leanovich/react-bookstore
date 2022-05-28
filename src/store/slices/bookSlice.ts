@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { bookApi } from "../../services/bookService";
-import { IBook, IBooksSlice } from "../../services/types/intex";
+import { IBook, IBooksSlice } from "../../services/types";
 
 const initialState: IBooksSlice = {
   books: [],

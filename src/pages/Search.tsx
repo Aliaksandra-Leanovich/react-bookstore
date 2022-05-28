@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { ListItem } from "../components/ListItem/ListItem";
 import { bookApi } from "../services/bookService";
-import { ISearchBookApi } from "../services/types/intex";
+import { ISearchBookApi } from "../services/types";
 import { typography } from "../ui/typography";
 
 export const Search = () => {

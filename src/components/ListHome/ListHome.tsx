@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { bookApi } from "../../services/bookService";
-import { INewBooksApi } from "../../services/types/intex";
+import { INewBooksApi } from "../../services/types";
 import { ListItem } from "../ListItem/ListItem";
 import { StyledBookList } from "./style";
 

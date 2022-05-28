@@ -1,5 +1,5 @@
 import axios from "axios";
-import { IBookDetailsApi, INewBooksApi, ISearchBookApi } from "./types/intex";
+import { IBookDetailsApi, INewBooksApi, ISearchBookApi } from "./types";
 
 class BookService {
   private readonly API_URL = "https://api.itbook.store/1.0/";

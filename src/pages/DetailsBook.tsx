@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { ButtonBack } from "../components/ButtonBack/ButtonBack";
 import { DetailedBook } from "../components/DetailedBook/DetailedBook";
 import { bookApi } from "../services/bookService";
-import { IBookDetailsApi } from "../services/types/intex";
+import { IBookDetailsApi } from "../services/types";
 
 export const DetailsBook = () => {
   const { id = "" } = useParams();
