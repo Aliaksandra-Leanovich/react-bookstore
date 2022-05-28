@@ -1,18 +1,26 @@
-import React from "react";
+import React, { ReactNode, useId } from "react";
 import { Element } from "react-scroll";
-import { Down, Star } from "../../assets";
+import { Down, Favorites, FilledStar, NoFilledStar } from "../../assets";
 
 import {
-  BookAuthor,
+  AddToCartButton,
   BookImage,
-  BookPrice,
+  ImageContainer,
   BookTitle,
-  ContainerMainInfo,
+  ContainerBook,
+  FavoriteContainer,
   ContainerRating,
-  Count,
+  Info,
   MainInformation,
+  Stars,
   StyledDetailed,
   StyledLink,
+  TextInfo,
+  ContainerMainInfo,
+  ContainerSecondInfo,
+  Description,
+  TabsContainer,
+  Tab,
 } from "./styles";
 
 interface IBook {
@@ -24,50 +32,117 @@ interface IBook {
   pages: string;
   year: string;
   rating: string;
+  isbn10: string;
+  isbn13: string;
   desc: string;
   image: string;
   url: string;
+  language: string;
 }
 
 interface IDetailsBook {
   detailsBook: IBook | undefined;
 }
+// interface IBookCart {
+//   title: string;
+//   price: string;
+//   subtitle: string;
+//   isbn13: string;
+//   image: string;
+//   url: string;
+// }
 
 export const DetailedBook = ({ detailsBook }: IDetailsBook) => {
+  // const dispatch = useAppDispatch();
+  // const handleCart = (detailsBook: IBookCart) => {
+  //   dispatch(addToCart(detailsBook));
+  // };
+  const id = useId();
+  const drawRating = (rating: string): ReactNode[] => {
+    const stars = [];
+    for (let i = 0; i <= 4; i++) {
+      if (i < +rating) {
+        stars.push(<FilledStar key={`${id}+${i * 33}`} />);
+      } else {
+        stars.push(<NoFilledStar key={`${id}+${i * 55}`} />);
+      }
+    }
+    return stars;
+  };
+
   return (
     <StyledDetailed>
-      <ContainerMainInfo>
-        <BookImage src={detailsBook?.image} alt={detailsBook?.title} />
+      <BookTitle>
+        {detailsBook?.title ? detailsBook.title : "No title"}
+      </BookTitle>
+      <ContainerBook>
+        <ImageContainer>
+          <FavoriteContainer>
+            <Favorites />
+          </FavoriteContainer>
+          <BookImage src={detailsBook?.image} alt={detailsBook?.title} />
+        </ImageContainer>
         <MainInformation>
-          <BookTitle>
-            {detailsBook?.title ? detailsBook.title : "No title"}
-          </BookTitle>
-          <BookAuthor>
+          <ContainerMainInfo>
+            <Info>Author</Info>
+            <TextInfo>
+              {detailsBook?.author ? detailsBook.author : "No author"}
+            </TextInfo>
+            <Info>Language</Info>
+            <TextInfo>{detailsBook?.language}</TextInfo>
+            <Info>Rating</Info>
+            <ContainerRating>
+              <TextInfo>{detailsBook?.rating} </TextInfo>
+              <Stars>{drawRating(`${detailsBook?.rating}`)}</Stars>
+            </ContainerRating>
+            <Info>Price</Info>
+            <TextInfo>
+              {detailsBook?.price === "$0.00"
+                ? "Currently not available"
+                : detailsBook?.price}
+            </TextInfo>
+            <StyledLink to="details" duration={500} smooth={true}>
+              More detailse
+              <Down />
+            </StyledLink>
+          </ContainerMainInfo>
+          <AddToCartButton>ADD TO CART</AddToCartButton>
+        </MainInformation>
+      </ContainerBook>
+      <Element name="details">
+        <TabsContainer>
+          <Tab> Description </Tab>
+          <Tab>More Details</Tab>
+          <Tab>Author</Tab>
+        </TabsContainer>
+        <Description>{detailsBook?.desc}</Description>
+        <ContainerSecondInfo>
+          <Info>Author</Info>
+          <TextInfo>
             {detailsBook?.author ? detailsBook.author : "No author"}
-          </BookAuthor>
+          </TextInfo>
+          <Info>Language</Info>
+          <TextInfo>{detailsBook?.language}</TextInfo>
+          <Info>Pubisher</Info>
+          <TextInfo>{detailsBook?.publisher}</TextInfo>
+          <Info>Year</Info>
+          <TextInfo>{detailsBook?.year}</TextInfo>
+          <Info>ISBN 10</Info>
+          <TextInfo>{detailsBook?.isbn10}</TextInfo>
+          <Info>ISBN 13</Info>
+          <TextInfo>{detailsBook?.isbn13}</TextInfo>
+          <Info>Rating</Info>
           <ContainerRating>
-            <Count>{detailsBook?.rating} </Count>
-            <Star />
+            <TextInfo>{detailsBook?.rating} </TextInfo>
+            <Stars>{drawRating(`${detailsBook?.rating}`)}</Stars>
           </ContainerRating>
-          <BookPrice>
+          <Info>Price</Info>
+          <TextInfo>
             {detailsBook?.price === "$0.00"
               ? "Currently not available"
               : detailsBook?.price}
-          </BookPrice>
-          <StyledLink to="details" duration={500} smooth={true}>
-            More detailse
-            <Down />
-          </StyledLink>
-        </MainInformation>
-      </ContainerMainInfo>
-      <Element name="details">
-        <h2>{detailsBook?.publisher}</h2>
-        <h2>{detailsBook?.pages}</h2>
-        <h2>{detailsBook?.year}</h2>
-
-        <h2>{detailsBook?.desc}</h2>
-        <h2>{detailsBook?.url}</h2>
-        <h2> {detailsBook?.author}</h2>
+          </TextInfo>
+        </ContainerSecondInfo>
       </Element>
     </StyledDetailed>
   );
