@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react";
+import { Back } from "../../assets";
 import { StyledButtonBack } from "./styles";
 
 interface IButton {
@@ -8,5 +9,9 @@ interface IButton {
 }
 
 export const ButtonBack: React.FC<IButton> = ({ children, handleBack }) => {
-  return <StyledButtonBack onClick={handleBack}>{children}</StyledButtonBack>;
+  return (
+    <StyledButtonBack onClick={handleBack}>
+      <Back /> {children}
+    </StyledButtonBack>
+  );
 };
