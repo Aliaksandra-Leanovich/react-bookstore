@@ -1,3 +1,5 @@
+import { RequestStatusType } from "../config/RequestStatus";
+
 export interface IBook {
   title: string;
   subtitle: string;
@@ -26,7 +28,6 @@ export interface IBooksSlice {
   status: RequestStatusType;
 }
 
-export type RequestStatusType = "idle" | "loading" | "success" | "error";
 export interface IBookDetailsApi {
   author: string;
   desc: string;
