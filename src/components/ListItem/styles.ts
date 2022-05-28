@@ -54,12 +54,22 @@ const BookPrice = styled.h3`
 
   margin-bottom: 10px;
 `;
+
 const HeartContainer = styled.div`
   align-self: flex-end;
 
   margin: 20px 10px 0 0;
 
   cursor: pointer;
+
+  &:hover {
+    background-color: ${Colors.LIGHT_BLUE};
+    border-radius: 20px;
+  }
+  &:active {
+    background-color: ${Colors.YELLOW};
+    border-radius: 20px;
+  }
 `;
 
 export {
