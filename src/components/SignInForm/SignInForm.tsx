@@ -29,7 +29,7 @@ export const SignInForm = () => {
       <SignInInput
         type="password"
         {...register("password")}
-        placeholder="Enter your placeholder"
+        placeholder="Enter your password"
       />
       <SignInButton type="submit">Sign In</SignInButton>
     </StyledSignInForm>
