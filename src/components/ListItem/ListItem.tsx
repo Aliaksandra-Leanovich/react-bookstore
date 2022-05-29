@@ -2,7 +2,8 @@ import React from "react";
 import { Heart } from "../../assets";
 import { INewBookApi } from "../../services/types";
 import { useAppDispatch } from "../../store/hooks/hooks";
-import { addFavorite } from "../../store/slices/userSlice";
+import { addFavorite } from "../../store/slices/favoriteSlice";
+
 import {
   StyledBookItem,
   BookPrice,
@@ -19,7 +20,7 @@ interface IBook {
 
 export const ListItem = ({ book }: IBook) => {
   const dispatch = useAppDispatch();
-  const handleFavorite = (book: INewBookApi) => {
+  const handleFavorite = (book: any) => {
     dispatch(addFavorite(book));
   };
   return (

@@ -1,6 +1,8 @@
 import React, { ReactNode, useId } from "react";
 import { Element } from "react-scroll";
 import { Down, Favorites, FilledStar, NoFilledStar } from "../../assets";
+import { useAppDispatch } from "../../store/hooks/hooks";
+import { addFavorite } from "../../store/slices/favoriteSlice";
 
 import {
   AddToCartButton,
@@ -43,20 +45,12 @@ interface IBook {
 interface IDetailsBook {
   detailsBook: IBook | undefined;
 }
-// interface IBookCart {
-//   title: string;
-//   price: string;
-//   subtitle: string;
-//   isbn13: string;
-//   image: string;
-//   url: string;
-// }
 
 export const DetailedBook = ({ detailsBook }: IDetailsBook) => {
-  // const dispatch = useAppDispatch();
-  // const handleCart = (detailsBook: IBookCart) => {
-  //   dispatch(addToCart(detailsBook));
-  // };
+  const dispatch = useAppDispatch();
+  const handleFavorite = (detailsBook: any) => {
+    dispatch(addFavorite(detailsBook));
+  };
   const id = useId();
   const drawRating = (rating: string): ReactNode[] => {
     const stars = [];
@@ -77,7 +71,7 @@ export const DetailedBook = ({ detailsBook }: IDetailsBook) => {
       </BookTitle>
       <ContainerBook>
         <ImageContainer>
-          <FavoriteContainer>
+          <FavoriteContainer onClick={() => handleFavorite(detailsBook)}>
             <Favorites />
           </FavoriteContainer>
           <BookImage src={detailsBook?.image} alt={detailsBook?.title} />
