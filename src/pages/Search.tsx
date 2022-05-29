@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { ListItem } from "../components/ListItem/ListItem";
 import { bookApi } from "../services/bookService";
@@ -9,6 +9,14 @@ import { typography } from "../ui/typography";
 export const Search = () => {
   const { title = "", page = "" } = useParams();
   const [searchBook, setSearchBook] = useState<ISearchBookApi>();
+  const navigate = useNavigate();
+
+  const handleNextPage = () => {
+    navigate(`search/${title}/${Number(page) + 1}`);
+  };
+  const handlePrevPage = () => {
+    navigate(`search/${title}/${Number(page) - 1}`);
+  };
   useEffect(() => {
     bookApi.getBooksBySearch(title, page).then((books) => {
       setSearchBook(books);
@@ -16,6 +24,14 @@ export const Search = () => {
   }, [title, page]);
   return (
     <>
+      <div>
+        <button type="button" onClick={handleNextPage}>
+          Next
+        </button>
+        <button type="button" onClick={handlePrevPage}>
+          Prev
+        </button>
+      </div>
       <SearchTitle>
         Total according to your search: {searchBook?.total} books
       </SearchTitle>
