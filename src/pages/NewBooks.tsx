@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import styled from "styled-components";
 import { ListHome } from "../components/ListHome/ListHome";
+import Subscribe from "../components/Subscribe/Subscribe";
 import { useAppDispatch } from "../store/hooks/hooks";
 import { featchBooskItems } from "../store/slices/bookSlice";
 import { typography } from "../ui/typography";
@@ -14,6 +15,7 @@ export const NewBooks = () => {
     <>
       <NewBooksTitle>All Books In Store:</NewBooksTitle>
       <ListHome />
+      <Subscribe />
     </>
   );
 };

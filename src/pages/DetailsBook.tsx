@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { ButtonBack } from "../components/ButtonBack/ButtonBack";
 import { DetailedBook } from "../components/DetailedBook/DetailedBook";
+import Subscribe from "../components/Subscribe/Subscribe";
 import { bookApi } from "../services/bookService";
 import { IBookDetailsApi } from "../services/types";
 
@@ -24,6 +25,7 @@ export const DetailsBook = () => {
         Back
       </ButtonBack>
       <DetailedBook key={id} detailsBook={detailsBook}></DetailedBook>
+      <Subscribe />
     </div>
   );
 };
