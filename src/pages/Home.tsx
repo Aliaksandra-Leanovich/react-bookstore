@@ -2,25 +2,30 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Bookshelf } from "../components/BookShelf/Bookshelf";
+import Subscribe from "../components/Subscribe/Subscribe";
 import { routes } from "../routes/routes";
 import { Colors } from "../ui/colors";
 
 export const Home = () => {
   return (
-    <StyledHome>
-      <Container>
-        <ContainerText>
-          <HomeTitle>A Book Worm's Paradise</HomeTitle>
-          <HomeDescription>
-            There are many ways to spend your time... Choose the best one.
-          </HomeDescription>
-        </ContainerText>
-        <StyledLink to={routes.NEWBOOKS}>SHOP NOW</StyledLink>
-      </Container>
-      <ContainerBookShelf>
-        <Bookshelf />
-      </ContainerBookShelf>
-    </StyledHome>
+    <>
+      <StyledHome>
+        <Container>
+          <ContainerText>
+            <HomeTitle>A Book Worm's Paradise</HomeTitle>
+            <HomeDescription>
+              There are many ways to spend your time... Choose the best one.
+            </HomeDescription>
+          </ContainerText>
+          <StyledLink to={routes.NEWBOOKS}>SHOP NOW</StyledLink>
+        </Container>
+        <ContainerBookShelf>
+          <Bookshelf />
+        </ContainerBookShelf>
+      </StyledHome>
+
+      <Subscribe />
+    </>
   );
 };
 
