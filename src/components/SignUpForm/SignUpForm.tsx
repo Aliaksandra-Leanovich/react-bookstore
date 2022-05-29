@@ -24,6 +24,11 @@ export const SignUpForm = () => {
   return (
     <StyledSignUpForm onSubmit={handleSubmit(onSubmit)}>
       <SignUpInput
+        type="text"
+        {...register("name")}
+        placeholder="Enter your name"
+      />
+      <SignUpInput
         type="email"
         {...register("email")}
         placeholder="Enter your email"
