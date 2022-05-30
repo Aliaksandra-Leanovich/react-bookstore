@@ -1,6 +1,6 @@
 import React from "react";
 import { Trash } from "../../assets";
-import { INewBookApi } from "../../services/types/intex";
+import { INewBookApi } from "../../services/types/index";
 import { useAppDispatch } from "../../store/hooks/hooks";
 import { deleteCart } from "../../store/slices/userSlice";
 import {

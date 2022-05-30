@@ -2,7 +2,7 @@ import React, { ReactNode, useId } from "react";
 import { Element } from "react-scroll";
 import { Down, Favorites, FilledStar, NoFilledStar } from "../../assets";
 import { useAppDispatch } from "../../store/hooks/hooks";
-import { setFavorite } from "../../store/slices/userSlice";
+import { setCart, setFavorite } from "../../store/slices/userSlice";
 
 import {
   AddToCartButton,
@@ -50,6 +50,9 @@ export const DetailedBook = ({ detailsBook }: IDetailsBook) => {
   const dispatch = useAppDispatch();
   const handleFavorite = (detailsBook: any) => {
     dispatch(setFavorite(detailsBook));
+  };
+  const handleCart = (detailsBook: any) => {
+    dispatch(setCart(detailsBook));
   };
   const id = useId();
   const drawRating = (rating: string): ReactNode[] => {
@@ -100,7 +103,9 @@ export const DetailedBook = ({ detailsBook }: IDetailsBook) => {
               <Down />
             </StyledLink>
           </ContainerMainInfo>
-          <AddToCartButton>ADD TO CART</AddToCartButton>
+          <AddToCartButton onClick={() => handleCart(detailsBook)}>
+            ADD TO CART
+          </AddToCartButton>
         </MainInformation>
       </ContainerBook>
       <Element name="details">
