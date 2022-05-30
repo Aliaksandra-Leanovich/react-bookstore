@@ -2,7 +2,7 @@ import React, { ReactNode, useId } from "react";
 import { Element } from "react-scroll";
 import { Down, Favorites, FilledStar, NoFilledStar } from "../../assets";
 import { useAppDispatch } from "../../store/hooks/hooks";
-import { addFavorite } from "../../store/slices/favoriteSlice";
+import { setFavorite } from "../../store/slices/userSlice";
 
 import {
   AddToCartButton,
@@ -49,7 +49,7 @@ interface IDetailsBook {
 export const DetailedBook = ({ detailsBook }: IDetailsBook) => {
   const dispatch = useAppDispatch();
   const handleFavorite = (detailsBook: any) => {
-    dispatch(addFavorite(detailsBook));
+    dispatch(setFavorite(detailsBook));
   };
   const id = useId();
   const drawRating = (rating: string): ReactNode[] => {

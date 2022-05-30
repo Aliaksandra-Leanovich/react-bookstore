@@ -2,7 +2,7 @@ import React from "react";
 import { Heart } from "../../assets";
 import { INewBookApi } from "../../services/types";
 import { useAppDispatch } from "../../store/hooks/hooks";
-import { addFavorite } from "../../store/slices/favoriteSlice";
+import { setFavorite } from "../../store/slices/userSlice";
 
 import {
   StyledBookItem,
@@ -21,7 +21,7 @@ interface IBook {
 export const ListItem = ({ book }: IBook) => {
   const dispatch = useAppDispatch();
   const handleFavorite = (book: any) => {
-    dispatch(addFavorite(book));
+    dispatch(setFavorite(book));
   };
   return (
     <StyledBookItem key={book.isbn13}>

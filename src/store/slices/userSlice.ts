@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IBook } from "../../services/types";
 
 interface IUserStore {
@@ -29,7 +29,36 @@ const userSlice = createSlice({
       state.isAuthorized = false;
       state.email = null;
     },
+    setFavorite: (state, { payload }: PayloadAction<IBook>) => {
+      state.favorites = [
+        { ...payload },
+        ...state.favorites.filter((item) => item.isbn13 !== payload.isbn13),
+      ];
+    },
+
+    deleteFavorite: (state, { payload }: PayloadAction<IBook>) => {
+      state.favorites = state.favorites.filter(
+        (item) => item.isbn13 !== payload.isbn13
+      );
+    },
+    setCart: (state, { payload }: PayloadAction<IBook>) => {
+      state.cart = [
+        { ...payload },
+        ...state.cart.filter((item) => item.isbn13 !== payload.isbn13),
+      ];
+    },
+
+    deleteCart: (state, { payload }: PayloadAction<IBook>) => {
+      state.cart = state.cart.filter((item) => item.isbn13 !== payload.isbn13);
+    },
   },
 });
-export const { setUser, unsetUser } = userSlice.actions;
+export const {
+  setUser,
+  unsetUser,
+  setFavorite,
+  deleteFavorite,
+  setCart,
+  deleteCart,
+} = userSlice.actions;
 export default userSlice.reducer;
