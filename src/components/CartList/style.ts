@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledListFavorites = styled.ul`
+export const StyledListCart = styled.ul`
   display: grid;
   row-gap: 20px;
   justify-content: center;

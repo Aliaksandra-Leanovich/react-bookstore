@@ -4,18 +4,17 @@ import { routes } from "../../routes/routes";
 import { useAppSelector } from "../../store/hooks/hooks";
 import { getUserInfo } from "../../store/selectors/userSelector";
 import { ItemFavorites } from "../ItemFavorites/ItemFavorites";
-import { StyledListFavorites } from "./styles";
+import { StyledListCart } from "./style";
 
-export const ListFavorites = () => {
-  const { isAuthorized, favorites } = useAppSelector(getUserInfo);
-
+export const CartList = () => {
+  const { isAuthorized, cart } = useAppSelector(getUserInfo);
   if (isAuthorized) {
     return (
-      <StyledListFavorites>
-        {favorites.map((book) => {
+      <StyledListCart>
+        {cart.map((book) => {
           return <ItemFavorites key={book.isbn13} book={book} />;
         })}
-      </StyledListFavorites>
+      </StyledListCart>
     );
   }
   return <Navigate to={routes.SIGNUP} />;

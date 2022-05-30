@@ -1,35 +1,18 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { Heart } from "../assets";
-import { useAppSelector } from "../store/hooks/hooks";
-import { getUserInfo } from "../store/selectors/userSelector";
+import { useNavigate } from "react-router-dom";
+import { ButtonBack } from "../components/ButtonBack/ButtonBack";
+import { CartList } from "../components/CartList/CartList";
 
 export const Cart = () => {
-  const { isAuthorized, cart } = useAppSelector(getUserInfo);
-
+  const navigate = useNavigate();
+  const handleBack = () => {
+    navigate(-1);
+  };
   return (
     <div>
-      <ul>
-        {cart.map((book) => {
-          return (
-            <li key={book.isbn13}>
-              <div>
-                <Heart />
-              </div>
-              <Link to={`/books/${book.isbn13}`}>
-                <img src={book.image} alt={book.title} />
-                <p>{book.title}</p>
-                <p>{book.subtitle}</p>
-                <p>
-                  {book.price === "$0.00"
-                    ? "Currently not available"
-                    : book.price}
-                </p>
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
+      <ButtonBack type="button" handleBack={handleBack}>
+        Back
+      </ButtonBack>
+      <CartList />
     </div>
   );
 };

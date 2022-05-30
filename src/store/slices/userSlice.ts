@@ -12,7 +12,7 @@ interface IUserStore {
 const initialState: IUserStore = {
   isAuthorized: false, //change!
   email: null,
-  name: "User",
+  name: null,
   favorites: [],
   cart: [],
 };
