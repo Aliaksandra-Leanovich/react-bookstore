@@ -56,4 +56,27 @@ const LabelInput = styled.p`
   line-height: 18px;
 `;
 
-export { ChangeForm, SaveButton, ChangeInput, StyledProfile, LabelInput };
+const Message = styled.div`
+  font-weight: 500;
+  line-height: 20px;
+  font-size: 16px;
+
+  color: #00000088;
+  background-color: #ebb25788;
+
+  border: none;
+  border-radius: 4px;
+
+  padding: 10px;
+  width: 200px;
+  text-align: center;
+`;
+
+export {
+  ChangeForm,
+  SaveButton,
+  ChangeInput,
+  StyledProfile,
+  LabelInput,
+  Message,
+};
