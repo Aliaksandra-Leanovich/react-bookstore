@@ -1,6 +1,7 @@
 import React, { ReactNode, useId } from "react";
 import { Element } from "react-scroll";
 import { Down, Favorites, FilledStar, NoFilledStar } from "../../assets";
+import { IBookDetailsApi } from "../../services/types";
 import { useAppDispatch } from "../../store/hooks/hooks";
 import { setCart, setFavorite } from "../../store/slices/userSlice";
 
@@ -25,35 +26,21 @@ import {
   Tab,
 } from "./styles";
 
-interface IBook {
-  title: string;
-  price: string;
-  author: string;
-  subtitle: string;
-  publisher: string;
-  pages: string;
-  year: string;
-  rating: string;
-  isbn10: string;
-  isbn13: string;
-  desc: string;
-  image: string;
-  url: string;
-  language: string;
-}
-
 interface IDetailsBook {
-  detailsBook: IBook | undefined;
+  books: IBookDetailsApi;
 }
 
-export const DetailedBook = ({ detailsBook }: IDetailsBook) => {
+export const DetailedBook = ({ books }: IDetailsBook) => {
   const dispatch = useAppDispatch();
-  const handleFavorite = (detailsBook: any) => {
-    dispatch(setFavorite(detailsBook));
+
+  const handleFavorite = (books: any) => {
+    dispatch(setFavorite(books));
   };
-  const handleCart = (detailsBook: any) => {
-    dispatch(setCart(detailsBook));
+
+  const handleCart = (books: any) => {
+    dispatch(setCart(books));
   };
+
   const id = useId();
   const drawRating = (rating: string): ReactNode[] => {
     const stars = [];
@@ -69,41 +56,37 @@ export const DetailedBook = ({ detailsBook }: IDetailsBook) => {
 
   return (
     <StyledDetailed>
-      <BookTitle>
-        {detailsBook?.title ? detailsBook.title : "No title"}
-      </BookTitle>
+      <BookTitle>{books?.title ? books.title : "No title"}</BookTitle>
       <ContainerBook>
         <ImageContainer>
-          <FavoriteContainer onClick={() => handleFavorite(detailsBook)}>
+          <FavoriteContainer onClick={() => handleFavorite(books)}>
             <Favorites />
           </FavoriteContainer>
-          <BookImage src={detailsBook?.image} alt={detailsBook?.title} />
+          <BookImage src={books?.image} alt={books?.title} />
         </ImageContainer>
         <MainInformation>
           <ContainerMainInfo>
             <Info>Author</Info>
-            <TextInfo>
-              {detailsBook?.author ? detailsBook.author : "No author"}
-            </TextInfo>
+            <TextInfo>{books?.authors ? books.authors : "No author"}</TextInfo>
             <Info>Language</Info>
-            <TextInfo>{detailsBook?.language}</TextInfo>
+            <TextInfo>{books?.language}</TextInfo>
             <Info>Rating</Info>
             <ContainerRating>
-              <TextInfo>{detailsBook?.rating} </TextInfo>
-              <Stars>{drawRating(`${detailsBook?.rating}`)}</Stars>
+              <TextInfo>{books?.rating} </TextInfo>
+              <Stars>{drawRating(`${books?.rating}`)}</Stars>
             </ContainerRating>
             <Info>Price</Info>
             <TextInfo>
-              {detailsBook?.price === "$0.00"
+              {books?.price === "$0.00"
                 ? "Currently not available"
-                : detailsBook?.price}
+                : books?.price}
             </TextInfo>
             <StyledLink to="details" duration={500} smooth={true}>
               More detailse
               <Down />
             </StyledLink>
           </ContainerMainInfo>
-          <AddToCartButton onClick={() => handleCart(detailsBook)}>
+          <AddToCartButton onClick={() => handleCart(books)}>
             ADD TO CART
           </AddToCartButton>
         </MainInformation>
@@ -114,32 +97,30 @@ export const DetailedBook = ({ detailsBook }: IDetailsBook) => {
           <Tab>More Details</Tab>
           <Tab>Author</Tab>
         </TabsContainer>
-        <Description>{detailsBook?.desc}</Description>
+        <Description>{books?.desc}</Description>
         <ContainerSecondInfo>
           <Info>Author</Info>
-          <TextInfo>
-            {detailsBook?.author ? detailsBook.author : "No author"}
-          </TextInfo>
+          <TextInfo>{books?.authors ? books.authors : "No author"}</TextInfo>
           <Info>Language</Info>
-          <TextInfo>{detailsBook?.language}</TextInfo>
+          <TextInfo>{books?.language}</TextInfo>
           <Info>Pubisher</Info>
-          <TextInfo>{detailsBook?.publisher}</TextInfo>
+          <TextInfo>{books?.publisher}</TextInfo>
           <Info>Year</Info>
-          <TextInfo>{detailsBook?.year}</TextInfo>
+          <TextInfo>{books?.year}</TextInfo>
           <Info>ISBN 10</Info>
-          <TextInfo>{detailsBook?.isbn10}</TextInfo>
+          <TextInfo>{books?.isbn10}</TextInfo>
           <Info>ISBN 13</Info>
-          <TextInfo>{detailsBook?.isbn13}</TextInfo>
+          <TextInfo>{books?.isbn13}</TextInfo>
           <Info>Rating</Info>
           <ContainerRating>
-            <TextInfo>{detailsBook?.rating} </TextInfo>
-            <Stars>{drawRating(`${detailsBook?.rating}`)}</Stars>
+            <TextInfo>{books?.rating} </TextInfo>
+            <Stars>{drawRating(`${books?.rating}`)}</Stars>
           </ContainerRating>
           <Info>Price</Info>
           <TextInfo>
-            {detailsBook?.price === "$0.00"
+            {books?.price === "$0.00"
               ? "Currently not available"
-              : detailsBook?.price}
+              : books?.price}
           </TextInfo>
         </ContainerSecondInfo>
       </Element>
