@@ -16,10 +16,11 @@ const StyledBookItem = styled.div`
 
   cursor: pointer;
 
+  transition: all 0.5s ease-out;
+
   &:hover {
     transform: translateY(-5px);
     box-shadow: 10px 5px 5px ${Colors.BLUE};
-    transition: all 0.5s;
   }
 `;
 
