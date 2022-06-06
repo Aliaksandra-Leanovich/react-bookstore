@@ -1,14 +1,15 @@
 import React from "react";
 import { Trash } from "../../assets";
-import { INewBookApi } from "../../services/types/index";
+import { IBookCartItem, IBookDetailsApi } from "../../services/types/index";
 import { useAppDispatch } from "../../store/hooks/hooks";
-import { deleteCart } from "../../store/slices/userSlice";
+import { deleteCart } from "../../store/slices/cartSlice";
 import {
   AdditionalContainer,
   BookImage,
   BookPrice,
   BookSubtitle,
   BookTitle,
+  Container,
   InfoContainer,
   StyledItemCart,
   StyledLink,
@@ -16,31 +17,33 @@ import {
 } from "./style";
 
 interface IBook {
-  book: INewBookApi;
+  book: IBookCartItem;
 }
 
 export const CartItem = ({ book }: IBook) => {
   const dispatch = useAppDispatch();
-  const handleCart = (book: any) => {
+  const handleCart = (book: IBookDetailsApi) => {
     dispatch(deleteCart(book));
   };
   return (
-    <StyledItemCart>
-      <StyledLink to={`/books/${book.isbn13}`}>
-        <BookImage src={book.image} alt={book.title} />
-        <InfoContainer>
-          <BookTitle>{book.title}</BookTitle>
-          <BookSubtitle>{book.subtitle}</BookSubtitle>
-        </InfoContainer>
-        <AdditionalContainer>
-          <BookPrice>
-            {book.price === "$0.00" ? "Currently not available" : book.price}
-          </BookPrice>
-        </AdditionalContainer>
-      </StyledLink>
+    <Container>
+      <StyledItemCart>
+        <StyledLink to={`/books/${book.isbn13}`}>
+          <BookImage src={book.image} alt={book.title} />
+          <InfoContainer>
+            <BookTitle>{book.title}</BookTitle>
+            <BookSubtitle>{book.subtitle}</BookSubtitle>
+          </InfoContainer>
+          <AdditionalContainer>
+            <BookPrice>
+              {book.price === "$0.00" ? "Currently not available" : book.price}
+            </BookPrice>
+          </AdditionalContainer>
+        </StyledLink>
+      </StyledItemCart>
       <TrashContainer onClick={() => handleCart(book)}>
         <Trash />
       </TrashContainer>
-    </StyledItemCart>
+    </Container>
   );
 };

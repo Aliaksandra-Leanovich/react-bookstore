@@ -1,21 +1,34 @@
-import React from "react";
-import { Navigate } from "react-router-dom";
-import { routes } from "../../routes/routes";
-import { useAppSelector } from "../../store/hooks/hooks";
-import { getUserInfo } from "../../store/selectors/userSelector";
-import { ItemFavorites } from "../ItemFavorites/ItemFavorites";
-import { StyledListCart } from "./style";
+import React, { useEffect, useState } from "react";
+import { IBookCartItem } from "../../services/types";
+import { CartItem } from "../CartItem/CartItem";
+import { StyledListCart, StyledTotal, TitleTotal, TotalPrice } from "./style";
 
-export const CartList = () => {
-  const { isAuthorized, cart } = useAppSelector(getUserInfo);
-  if (isAuthorized) {
-    return (
+interface ICart {
+  books: IBookCartItem[];
+}
+
+export const CartList = ({ books }: ICart) => {
+  const [total, setTotal] = useState(0.0);
+
+  useEffect(() => {
+    let totalAmount = 0.0;
+    books.forEach((book) => {
+      totalAmount += Number(book.price.slice(1));
+    });
+    setTotal(totalAmount);
+  }, [books]);
+
+  return (
+    <>
+      <StyledTotal>
+        <TitleTotal>Total: </TitleTotal>
+        <TotalPrice>{total.toFixed(2)}$</TotalPrice>
+      </StyledTotal>
       <StyledListCart>
-        {cart.map((book) => {
-          return <ItemFavorites key={book.isbn13} book={book} />;
+        {books.map((book) => {
+          return <CartItem key={book.isbn13} book={book} />;
         })}
       </StyledListCart>
-    );
-  }
-  return <Navigate to={routes.SIGNUP} />;
+    </>
+  );
 };

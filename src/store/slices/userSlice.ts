@@ -10,7 +10,7 @@ interface IUserStore {
 }
 
 const initialState: IUserStore = {
-  isAuthorized: false, //change!
+  isAuthorized: true, //change!
   email: undefined,
   name: undefined,
   favorites: [],
@@ -44,25 +44,8 @@ const userSlice = createSlice({
         (item) => item.isbn13 !== payload.isbn13
       );
     },
-    setCart: (state, { payload }: PayloadAction<IBook>) => {
-      state.cart = [
-        { ...payload },
-        ...state.cart.filter((item) => item.isbn13 !== payload.isbn13),
-      ];
-    },
-
-    deleteCart: (state, { payload }: PayloadAction<IBook>) => {
-      state.cart = state.cart.filter((item) => item.isbn13 !== payload.isbn13);
-    },
   },
 });
-export const {
-  setUser,
-  unsetUser,
-  setUserName,
-  setFavorite,
-  deleteFavorite,
-  setCart,
-  deleteCart,
-} = userSlice.actions;
+export const { setUser, unsetUser, setUserName, setFavorite, deleteFavorite } =
+  userSlice.actions;
 export default userSlice.reducer;

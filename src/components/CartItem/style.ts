@@ -8,6 +8,12 @@ export const StyledItemCart = styled.li`
 
   border: 2px solid ${Colors.BLACK};
   border-radius: 20px;
+
+  transition: all 0.5s ease-out;
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 10px 5px 5px ${Colors.BLUE};
+  }
 `;
 
 export const InfoContainer = styled.div`
@@ -22,6 +28,8 @@ export const InfoContainer = styled.div`
 `;
 export const TrashContainer = styled.div`
   cursor: pointer;
+
+  margin-left: 20px;
 `;
 export const AdditionalContainer = styled.div`
   display: flex;
@@ -62,4 +70,9 @@ export const BookSubtitle = styled.p`
   font-weight: 500;
 
   color: ${Colors.GREY};
+`;
+export const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

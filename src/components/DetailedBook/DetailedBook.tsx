@@ -3,7 +3,8 @@ import { Element } from "react-scroll";
 import { Down, Favorites, FilledStar, NoFilledStar } from "../../assets";
 import { IBookDetailsApi } from "../../services/types";
 import { useAppDispatch } from "../../store/hooks/hooks";
-import { setCart, setFavorite } from "../../store/slices/userSlice";
+import { setCart } from "../../store/slices/cartSlice";
+import { setFavorite } from "../../store/slices/userSlice";
 
 import {
   AddToCartButton,
