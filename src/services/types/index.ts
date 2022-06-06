@@ -8,7 +8,24 @@ export interface IBook {
   image: string;
   url: string;
 }
-
+export interface IBookDetailsApi {
+  authors: string;
+  desc: string;
+  error: string;
+  image: string;
+  isbn10: string;
+  isbn13: string;
+  language: string;
+  pages: string;
+  pdf: { [key: string]: string };
+  price: string;
+  publisher: string;
+  rating: string;
+  subtitle: string;
+  title: string;
+  url: string;
+  year: string;
+}
 export interface INewBooksApi {
   books: IBook[];
   error: string;
@@ -27,25 +44,14 @@ export interface IBooksSlice {
   error: any;
   status: RequestStatusType;
 }
-
-export interface IBookDetailsApi {
-  author: string;
-  desc: string;
-  error: string;
-  image: string;
-  isbn10: string;
-  isbn13: string;
-  language: string;
-  pages: string;
-  pdf: { [key: string]: string };
-  price: string;
-  publisher: string;
-  rating: string;
-  subtitle: string;
-  title: string;
-  url: string;
-  year: string;
+export interface IBookApi {
+  books: IBook[];
+  error: any;
+  status: RequestStatusType;
+  total: string;
+  result: IBookDetailsApi;
 }
+
 export interface ISearchBookApi extends INewBooksApi {
   page: string;
 }
