@@ -12,5 +12,13 @@ const StyledBookList = styled.ul`
   padding: 0;
   margin: 0 auto;
 `;
+const StyledLoading = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-export { StyledBookList };
+  width: 100%;
+  height: 100vh;
+`;
+
+export { StyledBookList, StyledLoading };
