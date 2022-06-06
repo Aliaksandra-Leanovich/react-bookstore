@@ -23,6 +23,7 @@ export const ListItem = ({ book }: IBook) => {
   const handleFavorite = (book: any) => {
     dispatch(setFavorite(book));
   };
+
   return (
     <StyledBookItem key={book.isbn13}>
       <HeartContainer onClick={() => handleFavorite(book)}>

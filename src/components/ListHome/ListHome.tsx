@@ -1,23 +1,34 @@
-import React, { useEffect, useState } from "react";
-import { bookApi } from "../../services/bookService";
-import { INewBooksApi } from "../../services/types";
+import React, { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../../store/hooks/hooks";
+import {
+  getBooks,
+  getBooksError,
+  getBooksStatus,
+} from "../../store/selectors/booksSelector";
+import { featchBooskItems } from "../../store/slices/bookSlice";
 import { ListItem } from "../ListItem/ListItem";
 import { StyledBookList } from "./style";
 
 export const ListHome = () => {
-  const [newBooks, setNewBooks] = useState<INewBooksApi>({
-    books: [],
-    error: "",
-    total: "",
-  });
+  const books = useAppSelector(getBooks);
+  const status = useAppSelector(getBooksStatus);
+  const error = useAppSelector(getBooksError);
+
+  const dispatch = useAppDispatch();
+
   useEffect(() => {
-    bookApi.getNewBooks().then((books) => {
-      setNewBooks(books);
-    });
-  }, []);
+    dispatch(featchBooskItems());
+  }, [dispatch]);
+
+  if (status === "loading") {
+    return <div>Loading</div>;
+  }
+  if (status === "error") {
+    return <div>Error {error}</div>;
+  }
   return (
     <StyledBookList>
-      {newBooks.books.map((book) => {
+      {books.books.map((book) => {
         return <ListItem key={book.isbn13} book={book} />;
       })}
     </StyledBookList>
