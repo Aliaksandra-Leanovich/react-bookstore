@@ -3,16 +3,16 @@ import { IBook } from "../../services/types";
 
 interface IUserStore {
   isAuthorized: boolean;
-  email: string | null;
-  name: string | null;
+  email: string | undefined;
+  name: string | undefined;
   favorites: IBook[];
   cart: IBook[];
 }
 
 const initialState: IUserStore = {
   isAuthorized: false, //change!
-  email: null,
-  name: null,
+  email: undefined,
+  name: undefined,
   favorites: [],
   cart: [],
 };
@@ -27,7 +27,10 @@ const userSlice = createSlice({
     },
     unsetUser: (state) => {
       state.isAuthorized = false;
-      state.email = null;
+      state.email = undefined;
+    },
+    setUserName: (state, action) => {
+      state.name = action.payload;
     },
     setFavorite: (state, { payload }: PayloadAction<IBook>) => {
       state.favorites = [
