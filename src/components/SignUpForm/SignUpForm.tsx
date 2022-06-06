@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { routes } from "../../routes/routes";
-import { setUser } from "../../store/slices/userSlice";
+import { setUser, setUserName } from "../../store/slices/userSlice";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { SignUpButton, SignUpInput, StyledSignUpForm } from "./styles";
 
@@ -17,6 +17,7 @@ export const SignUpForm = () => {
     createUserWithEmailAndPassword(auth, data.email, data.password)
       .then((userCredential) => {
         dispatch(setUser(userCredential.user.email));
+        dispatch(setUserName(data.name));
         navigate(routes.SIGNIN);
       })
       .catch(console.error);

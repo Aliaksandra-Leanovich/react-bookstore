@@ -59,6 +59,7 @@ const userSlice = createSlice({
 export const {
   setUser,
   unsetUser,
+  setUserName,
   setFavorite,
   deleteFavorite,
   setCart,
