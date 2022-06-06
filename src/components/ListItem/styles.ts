@@ -58,8 +58,8 @@ const BookPrice = styled.h3`
 
 const HeartContainer = styled.div`
   align-self: flex-end;
-
-  margin: 20px 10px 0 0;
+  margin: 10px 0 0;
+  padding: 10px 15px;
 
   cursor: pointer;
 
