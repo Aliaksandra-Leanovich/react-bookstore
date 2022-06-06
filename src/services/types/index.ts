@@ -55,3 +55,12 @@ export interface IBookApi {
 export interface ISearchBookApi extends INewBooksApi {
   page: string;
 }
+
+export interface IBookCartItem extends IBookDetailsApi {
+  amount: number;
+}
+export interface ICartStore {
+  cartItems: IBookCartItem[];
+  total: number;
+  isLoading: boolean;
+}
