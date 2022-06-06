@@ -1,27 +1,33 @@
-import React, { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { ListItem } from "../components/ListItem/ListItem";
-import { bookApi } from "../services/bookService";
-import { ISearchBookApi } from "../services/types";
+import { useAppDispatch, useAppSelector } from "../store/hooks/hooks";
+import { getBooks } from "../store/selectors/booksSelector";
+import { fetchBooksBySearch } from "../store/slices/bookSlice";
 import { typography } from "../ui/typography";
 
 export const Search = () => {
   const { title = "", page = "" } = useParams();
-  const [searchBook, setSearchBook] = useState<ISearchBookApi>();
+  const { books, total } = useAppSelector(getBooks);
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
   const handleNextPage = () => {
-    navigate(`search/${title}/${Number(page) + 1}`);
+    if (total && +page < Math.ceil(+total) / 10) {
+      navigate(`/react-bookstore/search/${title}/${Number(page) + 1}`);
+    }
   };
+
   const handlePrevPage = () => {
-    navigate(`search/${title}/${Number(page) - 1}`);
+    if (+page > 1) {
+      navigate(`/react-bookstore/search/${title}/${Number(page) - 1}`);
+    }
   };
+
   useEffect(() => {
-    bookApi.getBooksBySearch(title, page).then((books) => {
-      setSearchBook(books);
-    });
-  }, [title, page]);
+    dispatch(fetchBooksBySearch({ title, page }));
+  }, [title, dispatch, page]);
   return (
     <>
       <div>
@@ -32,12 +38,10 @@ export const Search = () => {
           Prev
         </button>
       </div>
-      <SearchTitle>
-        Total according to your search: {searchBook?.total} books
-      </SearchTitle>
-      <SearchDesc>Current Page: {searchBook?.page}</SearchDesc>
+      <SearchTitle>Total according to your search: {total} books</SearchTitle>
+      <SearchDesc>Current Page: {page}</SearchDesc>
       <StyledBookList>
-        {searchBook?.books.map((book) => {
+        {books.map((book) => {
           return <ListItem key={book.isbn13} book={book} />;
         })}
       </StyledBookList>
