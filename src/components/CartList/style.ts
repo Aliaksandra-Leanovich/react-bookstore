@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { typography } from "../../ui/typography";
 
 export const StyledListCart = styled.ul`
   display: grid;
@@ -21,13 +22,10 @@ export const StyledTotal = styled.div`
 `;
 
 export const TitleTotal = styled.p`
-  font-size: 20px;
-  line-height: 23px;
+  ${typography.bodytext}
   font-weight: 500;
 `;
 
 export const TotalPrice = styled.p`
-  font-size: 24px;
-  line-height: 27px;
-  font-weight: 700;
+  ${typography.H3}
 `;
