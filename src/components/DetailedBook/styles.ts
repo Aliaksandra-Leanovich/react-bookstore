@@ -1,6 +1,7 @@
 import { Link } from "react-scroll";
 import styled from "styled-components";
 import { Colors } from "../../ui/colors";
+import { media } from "../../ui/media";
 import { typography } from "../../ui/typography";
 
 interface IProps {
@@ -29,7 +30,19 @@ export const ContainerMainInfo = styled.div`
   grid-template-columns: 1fr 1fr;
   column-gap: 90px;
   row-gap: 30px;
+
   margin-bottom: 30px;
+
+  ${media.TABLET} {
+    column-gap: 20px;
+    row-gap: 20px;
+    margin-bottom: 20px;
+  }
+  ${media.PHONE} {
+    column-gap: 10px;
+    row-gap: 5px;
+    margin-bottom: 10px;
+  }
 `;
 export const ContainerSecondInfo = styled.div`
   display: grid;
@@ -42,10 +55,21 @@ export const ContainerSecondInfo = styled.div`
 
   margin-bottom: 30px;
   margin-top: 40px;
+
+  ${media.TABLET} {
+    column-gap: 20px;
+    row-gap: 20px;
+    margin-bottom: 20px;
+  }
+  ${media.PHONE} {
+    column-gap: 10px;
+    row-gap: 5px;
+    margin-bottom: 10px;
+  }
 `;
 export const ContainerBook = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
   column-gap: 20px;
 
   padding-bottom: 50px;
@@ -56,6 +80,7 @@ export const ContainerBook = styled.div`
 export const BookImage = styled.img`
   display: block;
   margin: 0 auto;
+  width: 100%;
 `;
 
 export const BookTitle = styled.p`
@@ -69,11 +94,26 @@ export const Info = styled.p`
   ${typography.subtitle}
   font-weight: 300;
   color: ${Colors.GREY};
+
+  ${media.TABLET} {
+    ${typography.subtitle2}
+    font-weight: 300;
+  }
+  ${media.PHONE} {
+    ${typography.subtitle3}
+    font-weight: 300;
+  }
 `;
 export const TextInfo = styled.p`
   ${typography.bodytext}
-
   font-weight: 500;
+
+  ${media.TABLET} {
+    ${typography.subtitle}
+  }
+  ${media.PHONE} {
+    ${typography.subtitle2}
+  }
 `;
 
 export const StyledLink = styled(Link)`
@@ -81,7 +121,17 @@ export const StyledLink = styled(Link)`
   align-self: flex-end;
   align-items: center;
 
+  text-decoration: underline;
+  margin-bottom: 20px;
+
   cursor: pointer;
+
+  ${media.TABLET} {
+    margin-bottom: 15px;
+  }
+  ${media.PHONE} {
+    margin-bottom: 10px;
+  }
 `;
 export const ContainerRating = styled.div`
   display: flex;
@@ -107,9 +157,27 @@ export const AddToCartButton = styled.button`
   &:active {
     background-color: ${Colors.BLUE};
   }
+  ${media.TABLET} {
+    width: 80%;
+    ${typography.subtitle}
+    margin-bottom: 15px;
+  }
+  ${media.PHONE} {
+    width: 70%;
+    ${typography.smallButton}
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
 `;
 export const Stars = styled.div`
   margin-left: 16px;
+
+  ${media.TABLET} {
+    margin-left: 7px;
+  }
+  ${media.PHONE} {
+    display: none;
+  }
 `;
 
 export const ImageContainer = styled.div`
@@ -119,9 +187,22 @@ export const ImageContainer = styled.div`
   margin-right: 128px;
 
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   border-radius: 20px;
   border: 2px solid ${Colors.BLACK};
+
+  ${media.TABLET} {
+    max-width: 250px;
+    margin-right: 30px;
+  }
+  ${media.PHONE} {
+    max-width: 150px;
+    margin-right: 10px;
+    padding: 5px;
+  }
 `;
 
 export const FavoriteContainer = styled.div`
@@ -146,6 +227,15 @@ export const Description = styled.p`
   ${typography.bodytext}
   margin-top: 20px;
   font-weight: 400;
+
+  ${media.TABLET} {
+    ${typography.subtitle}
+    font-weight: 400;
+  }
+  ${media.PHONE} {
+    ${typography.subtitle2}
+    font-weight: 400;
+  }
 `;
 
 export const Tabs = styled.div`
