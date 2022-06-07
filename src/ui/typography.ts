@@ -16,6 +16,11 @@ const H2 = css`
   font-weight: 700;
   font-size: 40px;
   line-height: 60px;
+
+  ${media.PHONE} {
+    font-size: 28px;
+    line-height: 40px;
+  }
 `;
 
 const H3 = css`
@@ -26,22 +31,35 @@ const H3 = css`
 
 const subtitle = css`
   font-weight: 700;
-  font-size: 18px;
-  line-height: 24px;
-  color: rgb(49, 48, 55);
+  font-size: 16px;
+  line-height: 18px;
 `;
 
 const bodytext = css`
   font-weight: 700;
-  font-size: 16px;
-  line-height: 20px;
-  color: rgb(49, 48, 55);
+  font-size: 20px;
+  line-height: 27px;
 `;
 
+const subtitle2 = css`
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+`;
+const subtitle3 = css`
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 400;
+`;
 const button = css`
   font-weight: 700;
   font-size: 24px;
   line-height: 24px;
+`;
+const smallButton = css`
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
 `;
 
 const input = css`
@@ -79,5 +97,8 @@ export const typography = {
   button,
   input,
   link,
+  smallButton,
   tab,
+  subtitle2,
+  subtitle3,
 };

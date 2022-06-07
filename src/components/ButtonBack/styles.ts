@@ -1,10 +1,9 @@
 import styled from "styled-components";
 import { Colors } from "../../ui/colors";
+import { typography } from "../../ui/typography";
 
 export const StyledButtonBack = styled.button`
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 19px;
+  ${typography.smallButton}
 
   padding: 7px 30px;
   display: flex;
