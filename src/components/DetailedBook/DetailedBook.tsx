@@ -1,4 +1,4 @@
-import React, { ReactNode, useId } from "react";
+import React, { ReactNode, useId, useState } from "react";
 import { Element } from "react-scroll";
 import { Down, Favorites, FilledStar, NoFilledStar } from "../../assets";
 import { IBookDetailsApi } from "../../services/types";
@@ -23,8 +23,9 @@ import {
   ContainerMainInfo,
   ContainerSecondInfo,
   Description,
-  TabsContainer,
   Tab,
+  Preview,
+  Tabs,
 } from "./styles";
 
 interface IDetailsBook {
@@ -55,6 +56,15 @@ export const DetailedBook = ({ books }: IDetailsBook) => {
     return stars;
   };
 
+  const [active, setActive] = useState<string>("description");
+  const handleAuthors = () => {
+    setActive("authors");
+  };
+  const handleDescription = () => {
+    setActive("description");
+  };
+
+  const chapters = books.pdf ? Object.values(books.pdf) : [];
   return (
     <StyledDetailed>
       <BookTitle>{books?.title ? books.title : "No title"}</BookTitle>
@@ -78,9 +88,7 @@ export const DetailedBook = ({ books }: IDetailsBook) => {
             </ContainerRating>
             <Info>Price</Info>
             <TextInfo>
-              {books?.price === "$0.00"
-                ? "Currently not available"
-                : books?.price}
+              {books?.price === "$0.00" ? "Free" : books?.price}
             </TextInfo>
             <StyledLink to="details" duration={500} smooth={true}>
               More detailse
@@ -90,38 +98,48 @@ export const DetailedBook = ({ books }: IDetailsBook) => {
           <AddToCartButton onClick={() => handleCart(books)}>
             ADD TO CART
           </AddToCartButton>
+          {chapters.map((chapter) => (
+            <Preview href={chapter} key={books.isbn13}>
+              Preview book
+            </Preview>
+          ))}
         </MainInformation>
       </ContainerBook>
       <Element name="details">
-        <TabsContainer>
-          <Tab> Description </Tab>
-          <Tab>More Details</Tab>
-          <Tab>Author</Tab>
-        </TabsContainer>
-        <Description>{books?.desc}</Description>
+        <Tabs>
+          <Tab isActive={active === "description"} onClick={handleDescription}>
+            Description
+          </Tab>
+          <Tab isActive={active === "authors"} onClick={handleAuthors}>
+            Author
+          </Tab>
+        </Tabs>
+        <Description>
+          {active === "description"
+            ? books.desc
+            : active === "authors"
+            ? books.authors
+            : "Not Found"}
+        </Description>
         <ContainerSecondInfo>
+          <Info>Title</Info>
+          <TextInfo>{books?.title}</TextInfo>
           <Info>Author</Info>
           <TextInfo>{books?.authors ? books.authors : "No author"}</TextInfo>
           <Info>Language</Info>
           <TextInfo>{books?.language}</TextInfo>
           <Info>Pubisher</Info>
           <TextInfo>{books?.publisher}</TextInfo>
+          <Info>Pages</Info>
+          <TextInfo>{books?.pages}</TextInfo>
           <Info>Year</Info>
           <TextInfo>{books?.year}</TextInfo>
-          <Info>ISBN 10</Info>
-          <TextInfo>{books?.isbn10}</TextInfo>
-          <Info>ISBN 13</Info>
-          <TextInfo>{books?.isbn13}</TextInfo>
           <Info>Rating</Info>
-          <ContainerRating>
-            <TextInfo>{books?.rating} </TextInfo>
-            <Stars>{drawRating(`${books?.rating}`)}</Stars>
-          </ContainerRating>
+          <TextInfo>{books?.rating} </TextInfo>
+
           <Info>Price</Info>
           <TextInfo>
-            {books?.price === "$0.00"
-              ? "Currently not available"
-              : books?.price}
+            {books?.price === "$0.00" ? "Free" : books?.price}
           </TextInfo>
         </ContainerSecondInfo>
       </Element>

@@ -3,6 +3,10 @@ import styled from "styled-components";
 import { Colors } from "../../ui/colors";
 import { typography } from "../../ui/typography";
 
+interface IProps {
+  isActive: boolean;
+}
+
 export const StyledDetailed = styled.div`
   padding: 20px 30px;
 `;
@@ -11,6 +15,11 @@ export const MainInformation = styled.div`
   max-width: 448px;
   width: 100%;
   padding-top: 30px;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 
   border-top: 1px solid ${Colors.GREY};
 `;
@@ -27,8 +36,12 @@ export const ContainerSecondInfo = styled.div`
   grid-template-columns: 1fr 1fr;
   column-gap: 90px;
   row-gap: 20px;
+
+  width: 100%;
+  max-width: 450px;
+
   margin-bottom: 30px;
-  margin-top: 20px;
+  margin-top: 40px;
 `;
 export const ContainerBook = styled.div`
   display: grid;
@@ -54,11 +67,13 @@ export const BookTitle = styled.p`
 `;
 export const Info = styled.p`
   ${typography.subtitle}
-
+  font-weight: 300;
   color: ${Colors.GREY};
 `;
 export const TextInfo = styled.p`
   ${typography.bodytext}
+
+  font-weight: 500;
 `;
 
 export const StyledLink = styled(Link)`
@@ -81,6 +96,7 @@ export const AddToCartButton = styled.button`
 
   width: 100%;
   padding: 10px 0;
+  margin-bottom: 20px;
   background-color: ${Colors.ORANGE};
 
   cursor: pointer;
@@ -128,14 +144,28 @@ export const FavoriteContainer = styled.div`
 
 export const Description = styled.p`
   ${typography.bodytext}
+  margin-top: 20px;
+  font-weight: 400;
 `;
 
-export const TabsContainer = styled.div`
+export const Tabs = styled.div`
   border-bottom: 1px solid rgb(231, 231, 231);
 `;
 
-export const Tab = styled.button`
+export const Tab = styled.button<IProps>`
   ${typography.tab}
 
   padding: 20px 40px 14px;
+
+  border-bottom: ${({ isActive }) =>
+    isActive ? `1px solid ${Colors.YELLOW}` : ""};
+  cursor: pointer;
+`;
+
+export const Preview = styled.a`
+  ${typography.subtitle}
+  font-weight: 300;
+  color: ${Colors.BLUE};
+
+  cursor: pointer;
 `;

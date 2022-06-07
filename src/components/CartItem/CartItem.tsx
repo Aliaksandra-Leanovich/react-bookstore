@@ -29,7 +29,7 @@ export const CartItem = ({ book }: IBook) => {
   return (
     <Container>
       <StyledItemCart>
-        <StyledLink to={`/react-bookstore/books/books/${book.isbn13}`}>
+        <StyledLink to={`/react-bookstore/books/${book.isbn13}`}>
           <BookImage src={book.image} alt={book.title} />
           <InfoContainer>
             <BookTitle>{book.title}</BookTitle>

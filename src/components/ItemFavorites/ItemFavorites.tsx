@@ -36,7 +36,7 @@ export const ItemFavorites = ({ book }: IBook) => {
           </InfoContainer>
           <AdditionalContainer>
             <BookPrice>
-              {book.price === "$0.00" ? "Currently not available" : book.price}
+              {book.price === "$0.00" ? "Free" : book.price}
             </BookPrice>
           </AdditionalContainer>
         </StyledLink>
