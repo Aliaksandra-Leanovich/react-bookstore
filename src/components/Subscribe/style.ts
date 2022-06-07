@@ -1,12 +1,14 @@
 import styled from "styled-components";
 import { Colors } from "../../ui/colors";
+import { media } from "../../ui/media";
 import { typography } from "../../ui/typography";
 
 const StyledSubscribe = styled.section`
   max-width: 1920px;
   width: 100%;
-  margin: 0 auto 72px;
+
   margin-top: 30px;
+  padding: 10px;
 `;
 
 const Container = styled.div`
@@ -25,6 +27,13 @@ const SubscribeBlock = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  ${media.TABLET} {
+    padding: 54px;
+  }
+  ${media.PHONE} {
+    padding: 44px;
+  }
 `;
 
 const SubscribeTitle = styled.h2`
