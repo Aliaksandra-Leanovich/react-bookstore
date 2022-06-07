@@ -33,9 +33,7 @@ export const ListItem = ({ book }: IBook) => {
         <BookImage src={book.image} alt={book.title} />
         <BookTitle>{book.title}</BookTitle>
         <BookSubtitle>{book.subtitle}</BookSubtitle>
-        <BookPrice>
-          {book.price === "$0.00" ? "Currently not available" : book.price}
-        </BookPrice>
+        <BookPrice>{book.price === "$0.00" ? "Free" : book.price}</BookPrice>
       </StyledLink>
     </StyledBookItem>
   );
