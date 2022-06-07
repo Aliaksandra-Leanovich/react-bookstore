@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { Colors } from "../../ui/colors";
+import { media } from "../../ui/media";
+import { typography } from "../../ui/typography";
 
 const ChangeForm = styled.form`
   display: grid;
@@ -32,6 +34,7 @@ const StyledProfile = styled.div`
   flex-direction: column;
 
   width: 100%;
+  padding: 10px;
 `;
 const SaveButton = styled.button`
   font-size: 16px;
@@ -51,15 +54,18 @@ const SaveButton = styled.button`
 `;
 
 const LabelInput = styled.p`
-  font-size: 27px;
-  font-weight: 500;
-  line-height: 18px;
+  ${typography.H3}
+
+  ${media.TABLET} {
+    ${typography.bodytext}
+  }
+  ${media.PHONE} {
+    ${typography.subtitle}
+  }
 `;
 
 const Message = styled.div`
-  font-weight: 500;
-  line-height: 20px;
-  font-size: 16px;
+  ${typography.subtitle2}
 
   color: #00000088;
   background-color: #ebb25788;

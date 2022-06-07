@@ -8,6 +8,8 @@ const StyledSignUpForm = styled.form`
   margin: 20px 0;
   width: 100%;
   max-width: 500px;
+
+  padding: 10px;
 `;
 
 const SignUpInput = styled.input`
