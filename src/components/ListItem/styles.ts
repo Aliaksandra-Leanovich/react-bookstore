@@ -39,9 +39,7 @@ const BookTitle = styled.h3`
 `;
 
 const BookSubtitle = styled.p`
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  ${typography.subtitle3}
 
   color: ${Colors.GREY};
 
