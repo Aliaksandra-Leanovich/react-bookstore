@@ -8,7 +8,7 @@ import { Favorites } from "../pages/Favorites";
 import { Home } from "../pages/Home";
 import { NewBooks } from "../pages/NewBooks";
 import { NotFound } from "../pages/NotFound";
-import { Register } from "../pages/Register";
+import { Register } from "../pages/Register/Register";
 import { Search } from "../pages/Search/Search";
 import { Signin } from "../pages/Signin";
 import { routes } from "../routes/routes";
