@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/react-bookstore/static/css/main.ba0a1d7c.css",
-    "main.js": "/react-bookstore/static/js/main.7a519132.js",
+    "main.js": "/react-bookstore/static/js/main.2b7e371c.js",
     "static/media/logo.svg": "/react-bookstore/static/media/logo.4df062493d3c8a2d9a244c508c206884.svg",
     "static/media/trash.svg": "/react-bookstore/static/media/trash.46f2615f5da4efc6d0109e2f2603de8b.svg",
     "static/media/star-notfilled.svg": "/react-bookstore/static/media/star-notfilled.5347ef19194612ea075a58eded8cca67.svg",
@@ -15,10 +15,10 @@
     "static/media/arrow-left-long-solid.svg": "/react-bookstore/static/media/arrow-left-long-solid.dc3e8de17bb3a5ca194609a6d83549df.svg",
     "index.html": "/react-bookstore/index.html",
     "main.ba0a1d7c.css.map": "/react-bookstore/static/css/main.ba0a1d7c.css.map",
-    "main.7a519132.js.map": "/react-bookstore/static/js/main.7a519132.js.map"
+    "main.2b7e371c.js.map": "/react-bookstore/static/js/main.2b7e371c.js.map"
   },
   "entrypoints": [
     "static/css/main.ba0a1d7c.css",
-    "static/js/main.7a519132.js"
+    "static/js/main.2b7e371c.js"
   ]
 }
