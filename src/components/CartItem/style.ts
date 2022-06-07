@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Colors } from "../../ui/colors";
+import { media } from "../../ui/media";
+import { typography } from "../../ui/typography";
 
 export const StyledItemCart = styled.li`
   width: 100%;
@@ -14,6 +16,13 @@ export const StyledItemCart = styled.li`
     transform: translateY(-2px);
     box-shadow: 10px 5px 5px ${Colors.BLUE};
   }
+  ${media.TABLET} {
+    padding: 5px 30px;
+  }
+
+  ${media.PHONE} {
+    padding: 5px 20px;
+  }
 `;
 
 export const InfoContainer = styled.div`
@@ -23,13 +32,26 @@ export const InfoContainer = styled.div`
   align-items: center;
 
   margin-right: 20px;
-  max-width: 180px;
+
   width: 100%;
+
+  ${media.TABLET} {
+    width: 100%;
+    margin-right: 10px;
+  }
+
+  ${media.PHONE} {
+    width: 100%;
+    margin-right: 5px;
+  }
 `;
 export const TrashContainer = styled.div`
   cursor: pointer;
 
   margin-left: 20px;
+  ${media.PHONE} {
+    margin-right: 10px;
+  }
 `;
 export const AdditionalContainer = styled.div`
   display: flex;
@@ -48,26 +70,30 @@ export const StyledLink = styled(Link)`
 export const BookImage = styled.img`
   width: 140px;
   margin-right: 10px;
+
+  ${media.LAPTOP} {
+    width: 120px;
+    margin-right: 5px;
+  }
+
+  ${media.PHONE} {
+    width: 100px;
+    margin-right: 0;
+  }
 `;
 
 export const BookPrice = styled.p`
-  font-size: 20px;
-  line-height: 23px;
-  font-weight: 600;
+  ${typography.subtitle}
 
   color: ${Colors.ORANGE};
 `;
 export const BookTitle = styled.p`
-  font-size: 16px;
-  line-height: 20px;
-  font-weight: 600;
+  ${typography.subtitle2}
 
   color: ${Colors.BLACK};
 `;
 export const BookSubtitle = styled.p`
-  font-size: 14px;
-  line-height: 18px;
-  font-weight: 500;
+  ${typography.subtitle3};
 
   color: ${Colors.GREY};
 `;
