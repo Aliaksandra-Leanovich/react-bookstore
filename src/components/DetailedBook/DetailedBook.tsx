@@ -90,11 +90,11 @@ export const DetailedBook = ({ books }: IDetailsBook) => {
             <TextInfo>
               {books?.price === "$0.00" ? "Free" : books?.price}
             </TextInfo>
-            <StyledLink to="details" duration={500} smooth={true}>
-              More detailse
-              <Down />
-            </StyledLink>
           </ContainerMainInfo>
+          <StyledLink to="details" duration={500} smooth={true}>
+            More detailse
+            <Down />
+          </StyledLink>
           <AddToCartButton onClick={() => handleCart(books)}>
             ADD TO CART
           </AddToCartButton>
