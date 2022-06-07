@@ -25,10 +25,11 @@ export const CartItem = ({ book }: IBook) => {
   const handleCart = (book: IBookDetailsApi) => {
     dispatch(deleteCart(book));
   };
+
   return (
     <Container>
       <StyledItemCart>
-        <StyledLink to={`/books/${book.isbn13}`}>
+        <StyledLink to={`/react-bookstore/books/books/${book.isbn13}`}>
           <BookImage src={book.image} alt={book.title} />
           <InfoContainer>
             <BookTitle>{book.title}</BookTitle>
@@ -36,7 +37,7 @@ export const CartItem = ({ book }: IBook) => {
           </InfoContainer>
           <AdditionalContainer>
             <BookPrice>
-              {book.price === "$0.00" ? "Currently not available" : book.price}
+              {book.price === "$0.00" ? "Free" : book.price}
             </BookPrice>
           </AdditionalContainer>
         </StyledLink>
