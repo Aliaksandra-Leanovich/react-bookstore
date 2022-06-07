@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { typography } from "../../ui/typography";
 
 const StyledBookList = styled.ul`
   display: grid;
@@ -21,4 +22,19 @@ const StyledLoading = styled.div`
   height: 100vh;
 `;
 
-export { StyledBookList, StyledLoading };
+const ErrorContainer = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+`;
+const ErrorTitle = styled.p`
+  ${typography.H2}
+`;
+const ErrorText = styled.p`
+  ${typography.bodytext}
+  margin-bottom: 240px;
+`;
+
+export { ErrorText, ErrorTitle, StyledBookList, ErrorContainer, StyledLoading };

@@ -7,8 +7,15 @@ import {
 } from "../../store/selectors/booksSelector";
 import { featchBooskItems } from "../../store/slices/bookSlice";
 import { ListItem } from "../ListItem/ListItem";
-import { StyledBookList, StyledLoading } from "./style";
+import {
+  ErrorContainer,
+  ErrorText,
+  ErrorTitle,
+  StyledBookList,
+  StyledLoading,
+} from "./style";
 import { SpinnerDotted } from "spinners-react";
+import { Bookshelf } from "../BookShelf/Bookshelf";
 
 export const ListHome = () => {
   const books = useAppSelector(getBooks);
@@ -29,7 +36,18 @@ export const ListHome = () => {
     );
   }
   if (status === "error") {
-    return <div>Error {error}</div>;
+    return (
+      <ErrorContainer>
+        <ErrorTitle>502 Service Temporarily Overloaded</ErrorTitle>
+        <ErrorText>
+          Server congestion; too many connections; high traffic. Keep trying
+          until the page loads.
+        </ErrorText>
+        <div>
+          <Bookshelf />
+        </div>
+      </ErrorContainer>
+    );
   }
   return (
     <StyledBookList>
