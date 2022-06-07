@@ -5,7 +5,7 @@ import { Account } from "../pages/Account";
 import { Cart } from "../pages/Cart";
 import { DetailsBook } from "../pages/DetailsBook";
 import { Favorites } from "../pages/Favorites";
-import { Home } from "../pages/Home";
+import { Home } from "../pages/Home/Home";
 import { NewBooks } from "../pages/NewBooks";
 import { NotFound } from "../pages/NotFound";
 import { Register } from "../pages/Register/Register";
