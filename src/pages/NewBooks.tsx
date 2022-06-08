@@ -7,7 +7,7 @@ import { typography } from "../ui/typography";
 export const NewBooks = () => {
   return (
     <>
-      <NewBooksTitle>All Books In Store:</NewBooksTitle>
+      <NewBooksTitle>New Releases Books:</NewBooksTitle>
       <ListHome />
       <Subscribe />
     </>
