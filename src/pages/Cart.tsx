@@ -24,5 +24,5 @@ export const Cart = () => {
     );
   }
 
-  return <Navigate to={routes.SIGNIN} />;
+  return <Navigate to={routes.SIGNUP} />;
 };
