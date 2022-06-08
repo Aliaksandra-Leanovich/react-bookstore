@@ -28,7 +28,7 @@ export const ItemFavorites = ({ book }: IBook) => {
   return (
     <Container>
       <StyledItemFavorites>
-        <StyledLink to={`/books/${book.isbn13}`}>
+        <StyledLink to={`/react-bookstore/books/${book.isbn13}`}>
           <BookImage src={book.image} alt={book.title} />
           <InfoContainer>
             <BookTitle>{book.title}</BookTitle>
