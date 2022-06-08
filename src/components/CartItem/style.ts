@@ -32,7 +32,7 @@ export const InfoContainer = styled.div`
   align-items: center;
 
   margin-right: 20px;
-
+  max-width: 280px;
   width: 100%;
 
   ${media.TABLET} {
