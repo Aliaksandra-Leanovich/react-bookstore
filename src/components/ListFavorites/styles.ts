@@ -7,4 +7,6 @@ export const StyledListFavorites = styled.ul`
   align-items: center;
 
   list-style: none;
+
+  padding: 20px;
 `;
