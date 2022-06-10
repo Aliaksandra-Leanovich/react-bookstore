@@ -1,5 +1,3 @@
-Btw, not all features are working,there are some problems with gh-pages. Trying to solve it:)
-
 # BookStore
 
 [Live Demo](https://aliaksandra-leanovich.github.io/react-bookstore/)
